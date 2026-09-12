@@ -35,7 +35,8 @@ def plot_structure_def(sys, scale, supports=True, numbers=True):
         fig, ax = plt.subplots()
     
     # undeformed
-    ax.plot(nodes[:,0], nodes[:,1], linestyle="--", color="c", linewidth=2)
+    for el in sys.elements:
+        ax.plot([el.n1.x, el.n2.x], [el.n1.z, el.n2.z], linestyle="--", color="c", linewidth=2)
 
 
     # Compute new coordinates
@@ -99,7 +100,7 @@ def plot_structure_def(sys, scale, supports=True, numbers=True):
             # avoid number superposition when elements cross in the middle
             ax.text(xx2[round(xx2.size / 2.5)], zz2[round(xx2.size / 2.5)], str(iel + 1), color = 'blue', fontsize = 16)
 
-    
+    ax.axis('equal')
     plt.grid()
     plt.xlabel(r"x in m")
     plt.ylabel(r"z in m")
