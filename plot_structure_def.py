@@ -24,10 +24,6 @@ def plot_structure_def(sys, scale, supports=True, numbers=True):
 
     r = sys.r * scale
 
-    #print(nod_dof)
-    #print(fixed_dof)
-    #print(nodes)
-
     if supports:
         fig = plot_supports(nodes, nod_dof, fixed_dof)
         ax = fig.gca()
@@ -99,6 +95,10 @@ def plot_structure_def(sys, scale, supports=True, numbers=True):
             # Plot element numbers. These are not plotted in the midpoint to
             # avoid number superposition when elements cross in the middle
             ax.text(xx2[round(xx2.size / 2.5)], zz2[round(xx2.size / 2.5)], str(iel + 1), color = 'blue', fontsize = 16)
+
+    for idx, el in enumerate(sys.elements):
+        S_el_glob = sys.S[idx*0:idx*3]
+
 
     ax.axis('equal')
     plt.grid()
