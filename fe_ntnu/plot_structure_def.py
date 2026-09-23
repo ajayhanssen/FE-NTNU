@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.interpolate import CubicSpline
-from plot_supports import plot_supports
+from .plot_supports import plot_supports
 
 def plot_structure_def(sys, scale, supports=True, numbers=True):
     #plot the beam structure defined by nodes and elements
