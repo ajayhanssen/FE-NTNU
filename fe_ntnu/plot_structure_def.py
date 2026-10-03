@@ -33,7 +33,7 @@ def plot_structure_def(sys, scale, supports=True, numbers=True):
     for el in sys.elements:
         ax.plot([el.n1.x, el.n2.x], [el.n1.z, el.n2.z], linestyle="--", color="c", linewidth=2, zorder=1)
         
-        # Plot hinges on undeformed structure
+        # plot hinges on undeformed structure
         if getattr(el, 'hinge_n1', False):
             ax.plot(el.n1.x, el.n1.z, marker='o', markerfacecolor='white', markeredgecolor='c', markersize=5, zorder=2)
         if getattr(el, 'hinge_n2', False):
